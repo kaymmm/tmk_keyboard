@@ -65,7 +65,7 @@ void matrix_init(void)
     MCUCR |= (1<<JTD);
     MCUCR |= (1<<JTD);
 
-    #ifdef BACKLIGHT_ENABLE
+    #if BACKLIGHT_ENABLE == 'YES'
         backlight_init_ports();
     #endif
 
