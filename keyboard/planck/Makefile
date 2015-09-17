@@ -131,6 +131,10 @@ ifdef MIDI_ENABLE
 	SRC += keymap_midi.c
 endif
 
+ifdef UNICODE_ENABLE
+	SRC += keymap_unicode.c
+endif
+
 # Optimize size but this may cause error "relocation truncated to fit"
 #EXTRALDFLAGS = -Wl,--relax
 
