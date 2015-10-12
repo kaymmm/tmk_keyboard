@@ -51,9 +51,8 @@ TARGET_DIR = .
 # # project specific files
 SRC = keymap_common.c \
 	matrix.c \
-	led.c
-#	backlight.c \
-#	beeps.c
+	led.c \
+	backlight.c 
 
 ifdef KEYMAP
     SRC := keymaps/keymap_$(KEYMAP).c $(SRC)
@@ -122,13 +121,15 @@ EXTRAKEY_ENABLE = yes	# Audio control and System control(+450)
 CONSOLE_ENABLE = yes	# Console for debug(+400)
 COMMAND_ENABLE = yes    # Commands for debug and configuration
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
-#SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
+# SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
 # NKRO_ENABLE = yes		# USB Nkey Rollover - not yet supported in LUFA
-#BACKLIGHT_ENABLE = yes  # Enable keyboard backlight functionality
-#MIDI_ENABLE = YES 		# MIDI controls
+BACKLIGHT_ENABLE = yes  # Enable keyboard backlight functionality
+# MIDI_ENABLE = YES 		# MIDI controls
+# UNICODE_ENABLE = YES 		# Unicode
 
 ifdef MIDI_ENABLE
-	SRC += keymap_midi.c
+	SRC += keymap_midi.c \
+		   beeps.c
 endif
 
 ifdef UNICODE_ENABLE
