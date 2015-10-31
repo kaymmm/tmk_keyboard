@@ -39,19 +39,18 @@
 #----------------------------------------------------------------------------
 
 # Target file name (without extension).
-TARGET = planck_lufa
+TARGET = planck
 
 
 # Directory common source filess exist
 TOP_DIR = ../..
+TMK_DIR = ../../tmk_core
 
 # Directory keyboard dependent files exist
 TARGET_DIR = .
 
 # # project specific files
-SRC = keymap_common.c \
-	matrix.c \
-	led.c \
+SRC = planck.c \
 	backlight.c 
 
 ifdef KEYMAP
@@ -126,15 +125,8 @@ COMMAND_ENABLE = yes    # Commands for debug and configuration
 BACKLIGHT_ENABLE = yes  # Enable keyboard backlight functionality
 # MIDI_ENABLE = YES 		# MIDI controls
 # UNICODE_ENABLE = YES 		# Unicode
+BLUETOOTH_ENABLE = yes # Enable Bluetooth with the Adafruit EZ-Key HID
 
-ifdef MIDI_ENABLE
-	SRC += keymap_midi.c \
-		   beeps.c
-endif
-
-ifdef UNICODE_ENABLE
-	SRC += keymap_unicode.c
-endif
 
 # Optimize size but this may cause error "relocation truncated to fit"
 #EXTRALDFLAGS = -Wl,--relax
@@ -142,8 +134,7 @@ endif
 # Search Path
 VPATH += $(TARGET_DIR)
 VPATH += $(TOP_DIR)
+VPATH += $(TMK_DIR)
 
-include $(TOP_DIR)/protocol/lufa.mk
-include $(TOP_DIR)/common.mk
-include $(TOP_DIR)/rules.mk
+include $(TOP_DIR)/quantum/quantum.mk
 
