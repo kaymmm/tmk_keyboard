@@ -66,6 +66,9 @@ extern const uint16_t fn_actions[];
 #define LSFT(kc) kc | 0x0200
 #define LALT(kc) kc | 0x0400
 #define LGUI(kc) kc | 0x0800
+#define HYPR(kc) kc | 0x0F00
+#define MEH(kc) kc  | 0x0700
+
 #define RCTL(kc) kc | 0x1100
 #define RSFT(kc) kc | 0x1200
 #define RALT(kc) kc | 0x1400
@@ -120,7 +123,7 @@ extern const uint16_t fn_actions[];
 #define KC_COLN LSFT(KC_SCLN)   // :
 #define KC_COLON    KC_COLN
 
-#define KC_PIPE LSFT(KC_SLSH)   // |
+#define KC_PIPE LSFT(KC_BSLS)   // |
 
 #define KC_DELT KC_DELETE // Del key (four letter code)
 
@@ -188,7 +191,13 @@ extern const uint16_t fn_actions[];
 #define SFT_T(kc) MT(0x2, kc)
 #define ALT_T(kc) MT(0x4, kc)
 #define GUI_T(kc) MT(0x8, kc)
+#define C_S_T(kc) MT(0x3, kc) // Control + Shift e.g. for gnome-terminal
+#define MEH_T(kc) MT(0x7, kc) // Meh is a less hyper version of the Hyper key -- doesn't include Win or Cmd, so just alt+shift+ctrl
 #define ALL_T(kc) MT(0xF, kc) // see http://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/
+
+// Dedicated keycode versions for Hyper and Meh, if you want to use them as standalone keys rather than mod-tap
+#define KC_HYPR HYPR(KC_NO)
+#define KC_MEH  MEH(KC_NO)
 
 // L-ayer, T-ap - 256 keycode max, 16 layer max
 #define LT(layer, kc) (kc | 0x8000 | ((layer & 0xF) << 8))
