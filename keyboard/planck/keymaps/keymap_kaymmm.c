@@ -37,20 +37,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* BASE_LAYER: qwerty
  *
  *  ,-----------------------------------------------------------------------------------------------------------.
- *  |  Tab   |  q     |  w     |  e     |  r     |  t     |  y     |  u     |  i     |  o     |  p     |  BS    |
+ *  |  `     |  q     |  w     |  e     |  r     |  t     |  y     |  u     |  i     |  o     |  p     |  BS    |
  *  |-----------------------------------------------------------------------------------------------------------|
- *  |  FnNum |  a     |  s     |  d     |  f     |  g     |  h     |  j     |  k     |  l     |  ;     |  Ret   |
+ *  |  Tab   |  a     |  s     |  d     |  f     |  g     |  h     |  j     |  k     |  l     |  ;     |  Ret   |
  *  |-----------------------------------------------------------------------------------------------------------|
  *  |  Shift |  z     |  x     |  c     |  v     |  b     |  n     |  m     |  ,     |  .     |  /     |  Shift |
  *  |-----------------------------------------------------------------------------------------------------------|
- *  |  Ctrl  |  Alt   |  FN4   |  Meta  |  Lower |  Space |  Space |  Upper |  Left  |  Down  |  Up    |  Right |
+ *  |  Ctrl  |  Alt   |  FN3   |  Meta  |  Space |  Lower |  Upper |  Space |  Left  |  Down  |  Up    |  Right |
  *  `-----------------------------------------------------------------------------------------------------------'
  */
 [BASE_LAYER] = {
-    {  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC},
-    {  KC_FN3,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_ENT},
+    {  KC_GRV,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC},
+    {  KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_ENT},
     { KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT},
-    { KC_LCTL, KC_LALT,  KC_FN4, KC_LGUI,  KC_FN1,  KC_SPC,  KC_SPC,  KC_FN2, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT}
+    { KC_LCTL, KC_LALT,  KC_FN3, KC_LGUI,  KC_SPC,  KC_FN1,  KC_FN2,  KC_SPC, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT}
 },
 
 /* LOWER_LAYER/FN1: numbers, symbols, media keys
@@ -118,27 +118,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     { KC_TRNS,   KC_NO, KC_LEFT, KC_DOWN, KC_RGHT,   KC_NO,   KC_NO,   KC_P4,   KC_P5,   KC_P6, KC_PPLS,  KC_EQL},
     {  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,   KC_NO,   KC_P1,   KC_P2,   KC_P3, KC_PENT, KC_TRNS},
     { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_P0, KC_COMM, KC_PDOT, KC_PENT, KC_TRNS}
-},
-
-/* MISC_LAYER/FN4: NAVIGATION! WASD + mousekeys
- *
- *  ,__________________________________________________________________________________________________________________________.
- *  |        |   a    |    s   |    d   |    f   |    g   |  h          |  j          |  k       |  l        |  ;     |        |
- *  +--------------------------------------------------------------------------------------------------------------------------+
- *  |        |########|   Up   |########|########|########|  msWUp      |  msB1       |  msUp    |  msB2     |########|        |
- *  |--------------------------------------------------------------------------------------------------------------------------|
- *  |        |  Left  |  Down  |  Right |########|########|  msWDn      |  msLf       |  msDn    |  msRt     |########|        |
- *  |--------------------------------------------------------------------------------------------------------------------------|
- *  |        |########|########|########|########|########|  msB3       |  msWLf      |##########|  msWRt    |########|        |
- *  |--------------------------------------------------------------------------------------------------------------------------|
- *  |        |        |        |        |        |        |             |             |          |           |        |        |
- *  `--------------------------------------------------------------------------------------------------------------------------'
- */
-[MISC_LAYER] = {
-    { KC_TRNS,   KC_NO,   KC_UP,   KC_NO,   KC_NO,   KC_NO,  KC_MS_WH_UP,   KC_MS_BTN1,  KC_MS_UP, KC_MS_BTN2,   KC_NO, KC_TRNS},
-    { KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT,   KC_NO, KC_TRNS,KC_MS_WH_DOWN,   KC_MS_LEFT,KC_MS_DOWN,KC_MS_RIGHT,   KC_NO, KC_TRNS},
-    { KC_TRNS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_MS_BTN3,KC_MS_WH_LEFT,     KC_NO,KC_MS_RIGHT,   KC_NO, KC_TRNS},
-    { KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS}
 }};
 
 enum macro_id {
